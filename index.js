@@ -1,13 +1,16 @@
-const fetchData = async() => {
+const fetchData = async(searchTerm) => {
   const response = await axios.get('http://www.omdbapi.com/', {
     params: {
       apikey: 'fec20d8a',
-      s: 'Avengers',
-      i: 'tt3896198' //unsure what this is but in url from api email
+      s: searchTerm
+      // i: 'tt4154756' //still not sure why search wont work without this i param (which is for a specific movie id)
     }
   });
   
   console.log(response.data);
 };
 
-fetchData();
+const input = document.querySelector('input');
+input.addEventListener('input', (event) => {
+  fetchData(event.target.value);
+})
