@@ -10,7 +10,15 @@ const fetchData = async(searchTerm) => {
   console.log(response.data);
 };
 
+let timeoutId;
+const onInput = event => {
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }//very clever method here of not allowing the api search until a 1000ms have passed where the user stopped typing
+  timeoutId = setTimeout(() => {
+    fetchData(event.target.value)
+  }, 1000);
+}
+
 const input = document.querySelector('input');
-input.addEventListener('input', (event) => {
-  fetchData(event.target.value);
-})
+input.addEventListener('input', onInput);
