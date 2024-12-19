@@ -70,6 +70,12 @@ const runComparison = () => {
 };
 
 const movieTemplate = movieDetail => {
+  const dollars = parseInt(
+    movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')
+  );
+  console.log(dollars)
+  
+  
   return `
     <article class="media">
       <figure class="media-left">
