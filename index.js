@@ -31,7 +31,7 @@ createAutoComplete({
   onOptionSelect(movie) {
     document.querySelector('.tutorial').classList.add('is-hidden');
     onMovieSelect(movie, document.querySelector('#left-summary') , 'left');
-  },
+  }, 
 });
 createAutoComplete({
   ...autoCompleteConfig,
